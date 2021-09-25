@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <!-- Menu Title   -->
+    <TextView
+        android:id="@+id/menu_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/menu"
+        android:textAlignment="center"
+        android:textSize="40sp"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+    <!-- Start Game Button   -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_game_btn"
+        android:id="@+id/start_game_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/menu_title"
+        android:layout_margin="15dp">
+    </Button>
+
+    <!-- Table Score Button   -->
+    <Button
+        android:id="@+id/table_score_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_game_btn"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="@string/table_score"
+        android:layout_margin="15dp">
+
+    </Button>
+
+    <!-- Settings Button   -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"
+        android:id="@+id/setting_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/table_score_btn"
+        android:layout_margin="15dp">
+    </Button>
+
+    <!-- Log Out Button   -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/log_out_btn"
+        android:id="@+id/logout"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/setting_btn"
+        android:backgroundTint="#F44336"
+        android:layout_margin="15dp">
+
+
+    </Button>
+
+
+</RelativeLayout>

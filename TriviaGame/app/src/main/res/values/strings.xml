@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">TriviaGame</string>
+    <string name="app_name">Trivia Game</string>
+    <string name="login_btn">login</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="register">register</string>
+    <string name="menu">Menu</string>
+    <string name="log_out_btn">Log out</string>
+    <string name="start_game_btn">Start Game</string>
+    <string name="table_score">Table Score</string>
+    <string name="settings">Settings</string>
 </resources>

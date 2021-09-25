@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <!-- Button register   -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register"
+        android:id="@+id/register_btn"
+        android:layout_marginTop="100dp">
+    </Button>
+
+
+    <!-- Button login   -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_btn"
+        android:id="@+id/login_btn"
+        android:layout_below="@id/register_btn"
+        android:layout_marginTop="25dp">
+    </Button>
+
+
+    </RelativeLayout>
