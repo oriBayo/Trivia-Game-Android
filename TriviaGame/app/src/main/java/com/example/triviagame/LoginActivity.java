@@ -44,12 +44,18 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * getting email and password and checking if the user exists in firebase.
+     * @param email
+     * @param password
+     */
     private void loginUser(String email, String password) {
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
+                    // if success go to Menu
                     startActivity(new Intent(LoginActivity.this, MenuActivity.class));
                     finish();
                 }else{

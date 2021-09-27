@@ -36,16 +36,22 @@ public class RegisterActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        // click register button
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
 
+                // field not empty
                 if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(RegisterActivity.this, "Empty credentials!", Toast.LENGTH_SHORT).show();
+
+                // password at least 6 characters
                 }else if(txt_password.length() < 6){
                     Toast.makeText(RegisterActivity.this, "Password too short!", Toast.LENGTH_SHORT).show();
+
+                // register
                 }else{
                     registerUser(txt_email, txt_password);
                 }
@@ -54,6 +60,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *
+     * @param email
+     * @param password
+     */
     private void registerUser(String email, String password) {
         auth.createUserWithEmailAndPassword(email,password).
                 addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {

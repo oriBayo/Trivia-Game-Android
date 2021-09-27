@@ -27,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         settings = findViewById(R.id.setting_btn);
         logout = findViewById(R.id.logout);
 
+        //click start game button
         startGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,8 +36,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-
-
+        //click logout button
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

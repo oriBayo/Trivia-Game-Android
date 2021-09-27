@@ -7,13 +7,17 @@
     tools:context=".MenuActivity">
 
     <!-- Menu Title   -->
+
+    <!-- Start Game Button   -->
+
     <TextView
         android:id="@+id/menu_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="82dp"
         android:layout_marginBottom="20dp"
         android:text="@string/menu"
         android:textAlignment="center"
@@ -22,16 +26,18 @@
 
     </TextView>
 
-    <!-- Start Game Button   -->
     <Button
+        android:id="@+id/start_game_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_game_btn"
-        android:id="@+id/start_game_btn"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/menu_title"
-        android:layout_margin="15dp">
-    </Button>
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_background"
+        android:text="@string/start_game_btn"></Button>
 
     <!-- Table Score Button   -->
     <Button
@@ -41,32 +47,45 @@
         android:layout_below="@id/start_game_btn"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:text="@string/table_score"
-        android:layout_margin="15dp">
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_background"
+        android:text="@string/table_score">
 
     </Button>
 
     <!-- Settings Button   -->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/settings"
-        android:id="@+id/setting_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/table_score_btn"
-        android:layout_margin="15dp">
-    </Button>
 
     <!-- Log Out Button   -->
+
     <Button
+        android:id="@+id/setting_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/table_score_btn"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_background"
+        android:text="@string/settings"></Button>
+
+    <Button
+        android:id="@+id/logout"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/log_out_btn"
-        android:id="@+id/logout"
+        android:layout_below="@+id/setting_btn"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/setting_btn"
-        android:backgroundTint="#F44336"
-        android:layout_margin="15dp">
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/button_logout_background"
+        android:text="@string/log_out_btn">
 
 
     </Button>
