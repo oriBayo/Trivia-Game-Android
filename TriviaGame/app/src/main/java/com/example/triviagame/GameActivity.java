@@ -2,14 +2,21 @@ package com.example.triviagame;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,54 +27,179 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
 
+//    private final QuizService quizService = new QuizService();
+
+    private List<Question> questionList = new ArrayList<>();
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+    private ImageView backBtn;
+    private TextView timer;
+    private TextView selectedTopicName;
+    private TextView questions;
     private TextView question;
-    private Button option1;
-    private Button option2;
-    private Button option3;
-    private Button option4;
-    private Question currQuestion = new Question();
-    private final List<Question> questionList = new ArrayList<>();
+    private AppCompatButton option1,option2,option3,option4;
+    private AppCompatButton nextBtn;
+    private Timer quizTimer;
+    private int totalTimeInMins = 1;
+    private int seconds = 0;
+
+    private Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
 
-        question = findViewById(R.id.textView_question);
-        option1 = findViewById(R.id.button_option1);
-        option2 = findViewById(R.id.button_option2);
-        option3 = findViewById(R.id.button_option3);
-        option4 = findViewById(R.id.button_option4);
+        backBtn = findViewById(R.id.backBtn);
+        timer = findViewById(R.id.timer);
+        selectedTopicName = findViewById(R.id.topicName);
+        questions = findViewById(R.id.questions);
+        question = findViewById(R.id.question);
+        option1 = findViewById(R.id.option1);
+        option2 = findViewById(R.id.option2);
+        option3 = findViewById(R.id.option3);
+        option4 = findViewById(R.id.option4);
+        nextBtn = findViewById(R.id.next_btn);
 
+        loadingDialog = new Dialog(GameActivity.this);
+        loadingDialog.setContentView(R.layout.loading_progressbar);
+        loadingDialog.setCancelable(false);
+        loadingDialog.getWindow().setBackgroundDrawableResource(R.drawable.progressbar_background);
+        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        loadingDialog.show();
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Java");
-        reference.addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Java").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                currQuestion = snapshot.getValue(Question.class);
-                System.out.println(currQuestion.getQuestion());
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    if(dataSnapshot.exists()){
+                        Question questionFromDB = dataSnapshot.getValue(Question.class);
+                        questionList.add(questionFromDB);
+                    }
+                }
+                Question q = questionList.get(0);
+                question.setText(q.getQuestion());
+                option1.setText(q.option1);
+                option2.setText(q.option2);
+                option3.setText(q.option3);
+                option4.setText(q.option4);
+                loadingDialog.cancel();
             }
 
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
-                System.out.println(error.getCode());
+
+            }
+        });
+
+
+        final String getSelectedTopicName = getIntent().getStringExtra("selectedTopic");
+
+        selectedTopicName.setText(getSelectedTopicName);
+
+        startTimer(timer);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                quizTimer.purge();
+                quizTimer.cancel();
+                startActivity(new Intent(GameActivity.this,MenuActivity.class));
+                finish();
+            }
+        });
+
+        option1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
+        option2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        option3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        option4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
 
-    private void handleQuestionDataFromDB(Question question){
-        this.question.setText(question.getQuestion());
-        this.option1.setText(question.getOption1());
-        this.option2.setText(question.getOption2());
-        this.option3.setText(question.getOption3());
-        this.option4.setText(question.getOption4());
-        System.out.println(question.getQuestion());
-        System.out.println(question.getOption1());
-        System.out.println(question.getOption2());
-        System.out.println(question.getOption3());
+    private void startTimer(TextView timerTextView){
+        quizTimer = new Timer();
+        quizTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                if(seconds == 0){
+                    totalTimeInMins--;
+                    seconds = 59;
+                }
+                else if(seconds == 0 && totalTimeInMins == 0){
+                    quizTimer.purge();
+                    quizTimer.cancel();
+
+                    Toast.makeText(GameActivity.this, "Time Over", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(GameActivity.this,QuizResultActivity.class);
+//                    intent.putExtra("correct",quizService.getCorrectAnswers());
+//                    intent.putExtra("inCorrect",quizService.getInCorrectAnswers());
+                    startActivity(intent);
+                    finish();
+                }else{
+                    seconds--;
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String finalMinutes = String.valueOf(totalTimeInMins);
+                        String finalSeconds = String.valueOf(seconds);
+
+                        if(finalMinutes.length() == 1){
+                            finalMinutes = "0" + finalMinutes;
+                        }
+                        if(finalSeconds.length() == 1){
+                            finalSeconds = "0" + finalSeconds;
+                        }
+                        timerTextView.setText(finalMinutes + ":" + finalSeconds);
+                    }
+                });
+            }
+        },1000,1000);
+    }
+
+    @Override
+    public void onBackPressed() {
+        quizTimer.purge();
+        quizTimer.cancel();
+        startActivity(new Intent(GameActivity.this,MenuActivity.class));
+        finish();
     }
 
 

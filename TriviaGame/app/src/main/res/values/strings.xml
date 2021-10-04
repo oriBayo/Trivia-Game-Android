@@ -9,4 +9,6 @@
     <string name="start_game_btn">Start Game</string>
     <string name="table_score">Table Score</string>
     <string name="settings">Settings</string>
+    <string name="new_user_sign_up">New User?Sign Up</string>
+    <string name="quiz">Quiz</string>
 </resources>

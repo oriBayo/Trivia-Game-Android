@@ -3,49 +3,40 @@ package com.example.triviagame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.FirebaseDatabase;
 
 public class StartActivity extends AppCompatActivity {
 
-    private Button register;
-    private Button login;
-    private Question question;
+    private Animation topAnim,bottomAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_start);
 
-        register = findViewById(R.id.register_btn);
-        login = findViewById(R.id.login_btn);
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        // click register button
-        register.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,RegisterActivity.class));
-                finish();
+            public void run() {
+                Intent intent = new Intent(StartActivity.this,LoginActivity.class);
+                startActivity(intent);
             }
-        });
+        },2000);
 
-        // Add Questions
-
-//        question = new Question("Methods such as reverse, shuffle are offered in:",
-//        "Object", "Collection", "Collections", "Apache Commons Collections",3);
-//        FirebaseDatabase.getInstance().getReference().child("Java").child("Question 2").setValue(question);
-
-        // click login button
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(StartActivity.this,LoginActivity.class));
-                finish();
-            }
-        });
     }
 
 }

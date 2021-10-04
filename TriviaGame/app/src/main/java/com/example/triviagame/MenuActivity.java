@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -20,6 +21,8 @@ public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_menu);
 
         startGame = findViewById(R.id.start_game_btn);
@@ -43,6 +46,17 @@ public class MenuActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(MenuActivity.this, "Logged Out!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MenuActivity.this,StartActivity.class));
+                finish();
+            }
+        });
+
+
+        //click tableScore button
+        tableScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MenuActivity.this,TableScoreActivity.class));
                 finish();
             }
         });
