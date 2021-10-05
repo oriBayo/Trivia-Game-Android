@@ -2,12 +2,12 @@ package com.example.triviagame;
 
 public class Question {
 
-    public String question;
-    public String option1;
-    public String option2;
-    public String option3;
-    public String option4;
-    public String correctAnswer;
+    private String question;
+    private String option1;
+    private String option2;
+    private String option3;
+    private String option4;
+    private String correctAnswer;
 
     public Question(String question, String option1, String option2, String option3, String option4, String correctAnswer) {
         this.question = question;

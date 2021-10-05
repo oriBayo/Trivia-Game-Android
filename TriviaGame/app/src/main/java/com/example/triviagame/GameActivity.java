@@ -7,7 +7,6 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -15,8 +14,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,7 +44,10 @@ public class GameActivity extends AppCompatActivity {
     private Timer quizTimer;
     private int totalTimeInMins = 1;
     private int seconds = 0;
+    private int points = 0;
 
+    private int currentQuestionPosition = 1;
+    private String currentAnswer;
     private Dialog loadingDialog;
 
     @Override
@@ -66,6 +66,7 @@ public class GameActivity extends AppCompatActivity {
         option3 = findViewById(R.id.option3);
         option4 = findViewById(R.id.option4);
         nextBtn = findViewById(R.id.next_btn);
+        
 
         loadingDialog = new Dialog(GameActivity.this);
         loadingDialog.setContentView(R.layout.loading_progressbar);
@@ -85,10 +86,11 @@ public class GameActivity extends AppCompatActivity {
                 }
                 Question q = questionList.get(0);
                 question.setText(q.getQuestion());
-                option1.setText(q.option1);
-                option2.setText(q.option2);
-                option3.setText(q.option3);
-                option4.setText(q.option4);
+                option1.setText(q.getOption1());
+                option2.setText(q.getOption2());
+                option3.setText(q.getOption3());
+                option4.setText(q.getOption4());
+                currentAnswer = q.getCorrectAnswer();
                 loadingDialog.cancel();
             }
 
@@ -97,7 +99,6 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
-
 
         final String getSelectedTopicName = getIntent().getStringExtra("selectedTopic");
 
@@ -119,14 +120,20 @@ public class GameActivity extends AppCompatActivity {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                if(option1.getText().toString().equals(currentAnswer)){
+                    points++;
+                }
+                setRound();
             }
         });
 
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(option2.getText().toString().equals(currentAnswer)){
+                    points++;
+                }
+                setRound();
 
             }
         });
@@ -134,14 +141,20 @@ public class GameActivity extends AppCompatActivity {
         option3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(option3.getText().toString().equals(currentAnswer)){
+                    points++;
+                }
+                setRound();
             }
         });
 
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if(option4.getText().toString().equals(currentAnswer)){
+                    points++;
+                }
+                setRound();
             }
         });
 
@@ -200,6 +213,24 @@ public class GameActivity extends AppCompatActivity {
         quizTimer.cancel();
         startActivity(new Intent(GameActivity.this,MenuActivity.class));
         finish();
+    }
+
+    private void setRound(){
+        Question question = questionList.get(currentQuestionPosition++);
+        this.question.setText(question.getQuestion());
+        this.option1.setText(question.getOption1());
+        this.option2.setText(question.getOption2());
+        this.option3.setText(question.getOption3());
+        this.option4.setText(question.getOption4());
+        this.currentAnswer = question.getCorrectAnswer();
+
+    }
+
+
+    private void checkingQuestion(String choicePlayer){
+        if(choicePlayer == currentAnswer){
+
+        }
     }
 
 
