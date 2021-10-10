@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/gradient_background2"
     tools:context=".RegisterActivity">
 
     <!-- Register Title    -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="cursive"
         android:id="@+id/register_txt"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:text="@string/register"
-        android:textSize="40sp"
+        android:textSize="60sp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp">
 

@@ -26,6 +26,7 @@ public class StartActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_start);
 
+        DBService DB = DBService.getSingleInstance();
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
@@ -35,7 +36,7 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent(StartActivity.this,LoginActivity.class);
                 startActivity(intent);
             }
-        },2000);
+        },4000);
 
     }
 

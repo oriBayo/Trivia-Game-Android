@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/gradient_background2"
     tools:context=".RegisterActivity">
 
     <!-- Login Title    -->
@@ -14,10 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:textColor="@color/black"
+        android:fontFamily="cursive"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="20dp"
         android:text="@string/login_btn"
-        android:textSize="40sp">
+        android:textSize="60sp">
 
     </TextView>
 
@@ -67,5 +68,18 @@
         android:textColor="@color/purple_700"
         android:text="@string/new_user_sign_up"
         tools:ignore="NotSibling" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="167dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="56dp"
+
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toStartOf="@+id/login_btn"
+        android:text="Remember me" />
 
 </RelativeLayout>

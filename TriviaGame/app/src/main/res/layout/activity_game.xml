@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background"
+    android:background="@drawable/gradient_background2"
     tools:context=".GameActivity">
 
 
@@ -21,53 +21,45 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
             android:src="@drawable/back">
-            
+
         </ImageView>
         <TextView
             android:id="@+id/topicName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Selected topic name"
-            android:textSize="18sp"
+            android:text="Java"
+            android:textSize="25sp"
             android:textStyle="bold">
 
         </TextView>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/clock">
-
-            </ImageView>
-            <TextView
-                android:id="@+id/timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00:59"
-                android:textColor="#FAA72F">
-
-            </TextView>
-        </LinearLayout>
     </RelativeLayout>
-    
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressBarTimer"
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:maxHeight="12sp"
+        android:minHeight="12dp"
+        android:progress="20"
+        android:max="20"
+        android:min="0"
+        android:theme="@style/ProgressBar"
+        android:progressBackgroundTint="#FF0000"
+        android:progressTint="#5107FF">
+
+    </androidx.core.widget.ContentLoadingProgressBar>
+
     <TextView
         android:id="@+id/questions"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edittext_background"
         android:elevation="1dp"
         android:gravity="center"
@@ -87,7 +79,6 @@
         android:background="@drawable/round_back_white_stroke2"
         android:gravity="center"
         android:minHeight="100dp"
-        android:text="Question will come here..."
         android:padding="20dp"
         android:textColor="#CC000000"
         android:textSize="16sp">
@@ -100,7 +91,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Option 1"
         android:layout_marginEnd="20dp"
         android:textAllCaps="false"
         android:textColor="#1F6BB8"
@@ -114,7 +104,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Option 2"
         android:layout_marginEnd="20dp"
         android:textAllCaps="false"
         android:textColor="#1F6BB8"
@@ -128,7 +117,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Option 3"
         android:layout_marginEnd="20dp"
         android:textAllCaps="false"
         android:textColor="#1F6BB8"
@@ -144,7 +132,6 @@
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Option 4"
         android:layout_marginEnd="20dp"
         android:textAllCaps="false"
         android:textColor="#1F6BB8"
@@ -152,19 +139,23 @@
 
     </androidx.appcompat.widget.AppCompatButton>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:text="Next"
-        android:layout_marginEnd="20dp"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/round_back_green">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/LoadingAnimation"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        android:layout_gravity="center"
+        app:layout_constraintWidth_percent="0.4"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/animation_game"
+        app:lottie_repeatMode="restart"
+        app:lottie_speed="0.8"
+        tools:ignore="MissingConstraints">
 
-    </androidx.appcompat.widget.AppCompatButton>
+    </com.airbnb.lottie.LottieAnimationView>
 
 
 </LinearLayout>

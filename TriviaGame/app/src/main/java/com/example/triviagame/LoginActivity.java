@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +32,15 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     private Button login;
     private TextView register;
+    private CheckBox rememberMe;
+
+    private String emailRemember;
+    private String passwordRemember;
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
+    public static final String CHECKBOX = "checkBox";
 
 
     private FirebaseAuth auth;
@@ -45,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password_input);
         login = findViewById(R.id.login_btn);
         register = findViewById(R.id.textView_register);
+        rememberMe = findViewById(R.id.checkBox);
 
         auth = FirebaseAuth.getInstance();
 
@@ -54,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
                 loginUser(txt_email,txt_password);
+
+                if(rememberMe.isChecked()){
+                    saveData();
+                }
             }
         });
 
@@ -64,6 +80,9 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        loadData();
+        updateViews();
     }
 
     /**
@@ -87,4 +106,27 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+    private void saveData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(EMAIL,email.getText().toString());
+        editor.putString(PASSWORD,password.getText().toString());
+        editor.apply();
+
+
+    }
+
+    private void loadData(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        emailRemember = sharedPreferences.getString(EMAIL,"");
+        passwordRemember = sharedPreferences.getString(PASSWORD,"");
+
+    }
+
+    private void updateViews(){
+        email.setText(emailRemember);
+        password.setText(passwordRemember);
+    }
+
 }

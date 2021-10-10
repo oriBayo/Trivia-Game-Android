@@ -1,56 +1,45 @@
 package com.example.triviagame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TableScoreActivity extends AppCompatActivity {
 
-    EditText question;
-    EditText option1;
-    EditText option2;
-    EditText option3;
-    EditText option4;
-    EditText answer;
-    Button btn;
-    int pos = 1;
-
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    RecyclerView recyclerView;
+    ScoreAdapter scoreAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_score);
-
-        question = findViewById(R.id.editTextQuestion);
-        option1 = findViewById(R.id.editTextOption1);
-        option2 = findViewById(R.id.editTextOption2);
-        option3 = findViewById(R.id.editTextOption3);
-        option4 = findViewById(R.id.editTextOption4);
-        answer = findViewById(R.id.editTextAnswer);
-        btn = findViewById(R.id.button);
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String questionStr = question.getText().toString();
-                String option1Str = option1.getText().toString();
-                String option2Str = option2.getText().toString();
-                String option3Str = option3.getText().toString();
-                String option4Str = option4.getText().toString();
-                String answerStr = answer.getText().toString();
-
-                Question q = new Question(questionStr,option1Str,option2Str,option3Str,option4Str,answerStr);
-                databaseReference.child("Java").child("question " + pos++).setValue(q);
-            }
-        });
+        recyclerView = findViewById(R.id.recycler_view);
+        setRecyclerView();
 
     }
+
+    private void setRecyclerView() {
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        scoreAdapter = new ScoreAdapter(this,DBService.getSingleInstance().getScoreList());
+        recyclerView.setAdapter(scoreAdapter);
+    }
+
 }
