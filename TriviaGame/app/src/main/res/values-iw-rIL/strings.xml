@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">טריוויה</string>
+    <string name="login_btn">התחברות</string>
+    <string name="password">סיסמה</string>
+    <string name="register">הרשמה</string>
+    <string name="menu">תפריט</string>
+    <string name="log_out_btn">יציאה</string>
+    <string name="start_game_btn">התחל משחק</string>
+    <string name="table_score">טבלת תוצאות</string>
+    <string name="settings">הגדרות</string>
+    <string name="new_user_sign_up">משתמש חדש?הירשם</string>
+    <string name="quiz">טריוויה</string>
+    <string name="email">אימייל</string>
+    <string name="remember_me">זכור אותי</string>
+
+
+</resources>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button register;
-
+    private ImageView backBtn;
     private FirebaseAuth auth;
 
 
@@ -38,6 +39,14 @@ public class RegisterActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
 
         auth = FirebaseAuth.getInstance();
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                finish();
+            }
+        });
 
         // click register button
         register.setOnClickListener(new View.OnClickListener() {

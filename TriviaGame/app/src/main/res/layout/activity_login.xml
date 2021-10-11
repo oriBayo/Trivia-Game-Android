@@ -80,6 +80,6 @@
         android:layout_marginTop="288dp"
         android:layout_marginEnd="20dp"
         android:layout_toStartOf="@+id/login_btn"
-        android:text="Remember me" />
+        android:text="@string/remember_me" />
 
 </RelativeLayout>

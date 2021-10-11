@@ -5,8 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TableScoreActivity"
+    android:background="@drawable/gradient_background2"
     android:stretchColumns="1,2,3"
     android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="0dp"
+            android:src="@drawable/back">
+        </ImageView>
+    </RelativeLayout>
 
     <TableRow>
         <TextView

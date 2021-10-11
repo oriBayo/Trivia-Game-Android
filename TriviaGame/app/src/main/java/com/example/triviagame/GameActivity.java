@@ -1,33 +1,21 @@
 package com.example.triviagame;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.widget.ContentLoadingProgressBar;
 
 import android.animation.Animator;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +32,6 @@ public class GameActivity extends AppCompatActivity {
     private ContentLoadingProgressBar progressBar;
     private int currentQuestionPosition = 0;
     private String currentAnswer;
-    private Dialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +40,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         findAllViews();
-        initDialog();
         initTimer();
-        fetchDataFromDB();
+        populateQuestions();
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,8 +118,8 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAnswer(String playerOption,View view){
-        if(playerOption.equals(currentAnswer)){
+    private void checkAnswer(String playerAnswer,View view){
+        if(playerAnswer.equals(currentAnswer)){
             ((AppCompatButton)view).setBackgroundResource(R.drawable.correct_answer_background);
             ((AppCompatButton)view).setTextColor(Color.WHITE);
             numOfCorrectAnswer++;
@@ -178,16 +164,8 @@ public class GameActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBarTimer);
     }
 
-    private void initDialog(){
-        loadingDialog = new Dialog(GameActivity.this);
-        loadingDialog.setContentView(R.layout.loading_progressbar);
-        loadingDialog.setCancelable(false);
-        loadingDialog.getWindow().setBackgroundDrawableResource(R.drawable.progressbar_background);
-        loadingDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        loadingDialog.show();
-    }
 
-    private void fetchDataFromDB(){
+    private void populateQuestions(){
         Question q = questionList.get(currentQuestionPosition++);
         question.setText(q.getQuestion());
         option1.setText(q.getOption1());
@@ -196,7 +174,6 @@ public class GameActivity extends AppCompatActivity {
         option4.setText(q.getOption4());
         currentAnswer = q.getCorrectAnswer();
 
-        loadingDialog.cancel();
         countDownTimer.start();
     }
 

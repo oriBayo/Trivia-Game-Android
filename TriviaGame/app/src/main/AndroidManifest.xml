@@ -12,20 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TriviaGame">
-        <activity android:name=".WonActivity" android:exported="true"/>
-        <activity android:name=".TableScoreActivity" android:exported="true"/>
-        <activity android:name=".TimesUpActivity" android:exported="true"/>
+
+        <activity
+            android:name=".WonActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TableScoreActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TimesUpActivity"
+            android:exported="true" />
         <activity
             android:name=".GameActivity"
-            android:parentActivityName=".MenuActivity" android:exported="true"/>
-        <activity android:name=".MenuActivity" android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".MenuActivity" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:parentActivityName=".StartActivity" android:exported="true"/>
+            android:exported="true"
+            android:parentActivityName=".StartActivity" />
         <activity
             android:name=".RegisterActivity"
-            android:parentActivityName=".StartActivity" android:exported="true"/>
-        <activity android:name=".StartActivity" android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".StartActivity" />
+        <activity
+            android:name=".StartActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

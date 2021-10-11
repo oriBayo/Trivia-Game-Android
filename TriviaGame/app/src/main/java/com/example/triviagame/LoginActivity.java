@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String emailRemember;
     private String passwordRemember;
+    private Boolean checkedRemember;
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String EMAIL = "email";
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
         setContentView(R.layout.activity_login);
 
@@ -112,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
 
         editor.putString(EMAIL,email.getText().toString());
         editor.putString(PASSWORD,password.getText().toString());
+        editor.putBoolean(CHECKBOX,rememberMe.isChecked());
         editor.apply();
 
 
@@ -121,12 +124,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         emailRemember = sharedPreferences.getString(EMAIL,"");
         passwordRemember = sharedPreferences.getString(PASSWORD,"");
+        checkedRemember = sharedPreferences.getBoolean(CHECKBOX,false);
 
     }
 
     private void updateViews(){
         email.setText(emailRemember);
         password.setText(passwordRemember);
+        rememberMe.setChecked(checkedRemember);
     }
 
 }

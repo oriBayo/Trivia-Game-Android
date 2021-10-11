@@ -60,5 +60,14 @@ public class MenuActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        //click settings button
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(MenuActivity.this,SettingsActivity.class));
+                finish();
+            }
+        });
     }
 }
