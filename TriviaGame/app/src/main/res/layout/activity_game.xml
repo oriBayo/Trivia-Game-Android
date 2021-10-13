@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/gradient_background2"
+    android:orientation="vertical"
     tools:context=".GameActivity">
 
 
@@ -23,6 +23,7 @@
             android:src="@drawable/back">
 
         </ImageView>
+
         <TextView
             android:id="@+id/topicName"
             android:layout_width="wrap_content"
@@ -39,18 +40,18 @@
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/progressBarTimer"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="12dp"
-        style="?android:attr/progressBarStyleHorizontal"
         android:indeterminate="false"
+        android:max="30"
         android:maxHeight="12sp"
-        android:minHeight="12dp"
-        android:progress="20"
-        android:max="20"
         android:min="0"
-        android:theme="@style/ProgressBar"
+        android:minHeight="12dp"
+        android:progress="30"
         android:progressBackgroundTint="#FF0000"
-        android:progressTint="#5107FF">
+        android:progressTint="#5107FF"
+        android:theme="@style/ProgressBar">
 
     </androidx.core.widget.ContentLoadingProgressBar>
 
@@ -69,13 +70,14 @@
         android:textColor="#1F6BBB">
 
     </TextView>
+
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/question"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginTop="-20dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/round_back_white_stroke2"
         android:gravity="center"
         android:minHeight="100dp"
@@ -92,9 +94,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_white_stroke2"
         android:textAllCaps="false"
-        android:textColor="#1F6BB8"
-        android:background="@drawable/round_back_white_stroke2">
+        android:textColor="#1F6BB8">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -105,9 +107,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_white_stroke2"
         android:textAllCaps="false"
-        android:textColor="#1F6BB8"
-        android:background="@drawable/round_back_white_stroke2">
+        android:textColor="#1F6BB8">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -118,10 +120,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_white_stroke2"
         android:textAllCaps="false"
-        android:textColor="#1F6BB8"
-        android:background="@drawable/round_back_white_stroke2">
-
+        android:textColor="#1F6BB8">
 
 
     </androidx.appcompat.widget.AppCompatButton>
@@ -133,9 +134,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/round_back_white_stroke2"
         android:textAllCaps="false"
-        android:textColor="#1F6BB8"
-        android:background="@drawable/round_back_white_stroke2">
+        android:textColor="#1F6BB8">
 
     </androidx.appcompat.widget.AppCompatButton>
 
@@ -143,10 +144,10 @@
         android:id="@+id/LoadingAnimation"
         android:layout_width="200dp"
         android:layout_height="150dp"
+        android:layout_gravity="center"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
-        android:layout_gravity="center"
         app:layout_constraintWidth_percent="0.4"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"

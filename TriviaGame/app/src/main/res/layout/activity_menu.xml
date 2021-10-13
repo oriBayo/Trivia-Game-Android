@@ -7,104 +7,124 @@
     android:background="@drawable/gradient_background2"
     tools:context=".MenuActivity">
 
-    <!-- Menu Title   -->
+    <ImageView
+        android:id="@+id/language_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/languges2">
 
-    <!-- Start Game Button   -->
+    </ImageView>
 
-    <TextView
-        android:id="@+id/menu_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:textColor="@color/black"
-        android:fontFamily="cursive"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/menu"
-        android:textAlignment="center"
-        android:textSize="60sp"
-        tools:ignore="MissingConstraints">
-
-    </TextView>
-
-    <Button
-        android:id="@+id/start_game_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/menu_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/edittext_background"
-        android:text="@string/start_game_btn" />
-
-    <!-- Table Score Button   -->
-    <Button
-        android:id="@+id/table_score_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/start_game_btn"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/edittext_background"
-        android:text="@string/table_score">
-
-    </Button>
-
-
-    <Button
-        android:id="@+id/setting_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/table_score_btn"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/edittext_background"
-        android:text="@string/settings" />
-
-    <Button
-        android:id="@+id/logout"
-        style="@style/Widget.AppCompat.Button"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/setting_btn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/button_logout_background"
-        android:text="@string/log_out_btn">
+        android:layout_marginTop="30dp">
 
-    </Button>
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/LoadingAnimation"
-            android:layout_width="300dp"
-            android:layout_height="220dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintHorizontal_bias="0.488"
-            app:layout_constraintWidth_percent="0.4"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/menu"
-            app:lottie_repeatMode="restart"
-            app:lottie_speed="1"
+        <TextView
+            android:id="@+id/menu_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="cursive"
+            android:text="@string/menu"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="60sp"
             tools:ignore="MissingConstraints">
 
-        </com.airbnb.lottie.LottieAnimationView>
+        </TextView>
+
+        <Button
+            android:id="@+id/start_game_btn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:text="@string/start_game_btn"
+            android:textSize="18sp" />
+
+        <!-- Table Score Button   -->
+        <Button
+            android:id="@+id/table_score_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/start_game_btn"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:text="@string/table_score"
+            android:textSize="18sp">
+
+        </Button>
+
+
+        <Button
+            android:id="@+id/setting_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table_score_btn"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_background"
+            android:text="@string/settings"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/logout"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setting_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_logout_background"
+            android:text="@string/log_out_btn"
+            android:textSize="18sp">
+
+        </Button>
+
+    </RelativeLayout>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/LoadingAnimation"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintWidth_percent="0.4"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/menu"
+        app:lottie_repeatMode="restart"
+        app:lottie_speed="1"
+        tools:ignore="MissingConstraints">
+
+    </com.airbnb.lottie.LottieAnimationView>
 
 </RelativeLayout>

@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> {
 
-   Context context;
-   List<Score> scoreList;
+    private final Context context;
+    private List<Score> scoreList;
 
     public ScoreAdapter(Context context, List<Score> scoreList) {
         this.context = context;
@@ -27,19 +27,19 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_layout,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ScoreAdapter.ViewHolder holder, int position) {
 
-        if(scoreList != null && scoreList.size() > 0){
+        if (scoreList != null && scoreList.size() > 0) {
             Score model = scoreList.get(position);
             holder.email.setText(model.getPlayerName());
             holder.points.setText(Integer.toString(model.getPoints()));
             holder.date.setText(model.getDate());
-        }else {
+        } else {
             return;
         }
     }
@@ -51,6 +51,7 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView email, points, date;
+
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 

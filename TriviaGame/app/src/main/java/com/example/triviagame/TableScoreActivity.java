@@ -26,9 +26,9 @@ import java.util.List;
 
 public class TableScoreActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    ScoreAdapter scoreAdapter;
-    ImageView backBtn;
+    private RecyclerView recyclerView;
+    private ScoreAdapter scoreAdapter;
+    private ImageView backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class TableScoreActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(TableScoreActivity.this,MenuActivity.class));
+                startActivity(new Intent(TableScoreActivity.this, MenuActivity.class));
                 finish();
             }
         });
@@ -50,7 +50,7 @@ public class TableScoreActivity extends AppCompatActivity {
     private void setRecyclerView() {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        scoreAdapter = new ScoreAdapter(this,DBService.getSingleInstance().getScoreList());
+        scoreAdapter = new ScoreAdapter(this, DBService.getSingleInstance().getScoreList());
         recyclerView.setAdapter(scoreAdapter);
     }
 

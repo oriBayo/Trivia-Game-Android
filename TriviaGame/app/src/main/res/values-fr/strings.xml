@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trivia</string>
+    <string name="login_btn">connexion</string>
+    <string name="password">password</string>
+    <string name="register">le mot de passe</string>
+    <string name="menu">Menu</string>
+    <string name="log_out_btn">Se déconnecter</string>
+    <string name="start_game_btn">Démarrer jeu</string>
+    <string name="table_score">Tableau des notes</string>
+    <string name="settings">Paramètres</string>
+    <string name="new_user_sign_up">Nouvel utilisateur ?Inscrivez-vous</string>
+    <string name="quiz">Quiz</string>
+    <string name="email">Email</string>
+    <string name="remember_me">Souviens-toi de moi</string>
+    <string name="orientation_title">Orientation</string>
+    <string name="night_mode_title">Mode nuit</string>
+    <string name="night_mode_deactivated">Le mode nuit est désactivé</string>
+    <string name="night_mode_activated">Le mode nuit est activé</string>
+    <string name="enable_night_mode_category">Activer le mode nuit</string>
+    <string name="screen_orientation_category">Orientation de lécran</string>
+    <string name="language_category">Langue</string>
+    <string name="all_language">Toutes les langues</string>
+</resources>

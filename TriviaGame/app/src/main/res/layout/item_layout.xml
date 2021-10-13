@@ -5,24 +5,28 @@
     android:stretchColumns="1,2,3">
 
     <TableRow>
+
         <TextView
             android:id="@+id/playerName"
-            android:textSize="16sp"
+            android:layout_column="1"
             android:gravity="center"
-            android:layout_column="1">
-        </TextView>
-        <TextView
-            android:id="@+id/points"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:layout_column="1">
+            android:textSize="16sp">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_column="1"
+            android:gravity="center"
+            android:textSize="16sp">
+
+        </TextView>
+
         <TextView
             android:id="@+id/date"
-            android:textSize="14sp"
+            android:layout_column="1"
             android:gravity="center"
-            android:layout_column="1">
+            android:textSize="14sp">
 
         </TextView>
     </TableRow>

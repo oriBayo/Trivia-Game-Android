@@ -12,5 +12,13 @@
     <string name="quiz">Quiz</string>
     <string name="email">Email</string>
     <string name="remember_me">Remember me</string>
+    <string name="orientation_title">Orientation</string>
+    <string name="night_mode_title">Night Mode</string>
+    <string name="night_mode_deactivated">Night mode is deactivated</string>
+    <string name="night_mode_activated">Night mode is activated</string>
+    <string name="enable_night_mode_category">Enable Night Mode</string>
+    <string name="screen_orientation_category">Screen Orientation</string>
+    <string name="language_category">Language</string>
+    <string name="all_language">All Language</string>
 
- </resources>
+</resources>

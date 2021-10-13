@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_orien">
+        <item>Auto</item>
+        <item>Portrait</item>
+        <item>Landscape</item>
+    </string-array>
+
+    <string-array name="item_value_orien">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="item_lang">
+        <item>English</item>
+        <item>עברית</item>
+
+    </string-array>
+
+    <string-array name="item_value_lang">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TableScoreActivity"
+    android:layout_margin="8dp"
     android:background="@drawable/gradient_background2"
     android:stretchColumns="1,2,3"
-    android:layout_margin="8dp">
+    tools:context=".TableScoreActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,32 +19,35 @@
             android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="0dp"
-            android:src="@drawable/back">
-        </ImageView>
+            android:src="@drawable/back"></ImageView>
     </RelativeLayout>
 
     <TableRow>
+
         <TextView
+            android:layout_column="1"
+            android:gravity="center"
             android:text="Name"
             android:textSize="16sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_column="1">
-        </TextView>
-        <TextView
-            android:text="points"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_column="1">
+            android:textStyle="bold">
 
         </TextView>
+
         <TextView
+            android:layout_column="1"
+            android:gravity="center"
+            android:text="points"
+            android:textSize="16sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:layout_column="1"
+            android:gravity="center"
             android:text="date"
             android:textSize="16sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:layout_column="1">
+            android:textStyle="bold">
 
         </TextView>
     </TableRow>

@@ -8,6 +8,7 @@ import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -16,29 +17,33 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class GameActivity extends AppCompatActivity {
 
-    private final int TIME = 20;
-    private final List<Question> questionList = DBService.getSingleInstance().getQuestionList();
+    private final int TIME = 30;
+    private List<Question> questionList;
     private ImageView backBtn;
-    private TextView questions,question;
-    private AppCompatButton option1,option2,option3,option4;
+    private TextView questions, question;
+    private AppCompatButton option1, option2, option3, option4;
     private int numOfCorrectAnswer = 0;
     private CountDownTimer countDownTimer;
     private int timerValue = TIME;
     private ContentLoadingProgressBar progressBar;
     private int currentQuestionPosition = 0;
     private String currentAnswer;
+    private MediaPlayer correctAnswerSound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game);
-
+        getTenRandomQuestions();
+        Collections.shuffle(questionList);
+        correctAnswerSound = MediaPlayer.create(this, R.raw.correct_answer_sound);
         findAllViews();
         initTimer();
         populateQuestions();
@@ -46,7 +51,7 @@ public class GameActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GameActivity.this,MenuActivity.class));
+                startActivity(new Intent(GameActivity.this, MenuActivity.class));
                 countDownTimer.cancel();
                 finish();
             }
@@ -55,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
         option1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(option1.getText().toString(),v);
+                checkAnswer(option1.getText().toString(), v);
                 changeQuestion();
             }
         });
@@ -63,7 +68,7 @@ public class GameActivity extends AppCompatActivity {
         option2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(option2.getText().toString(),v);
+                checkAnswer(option2.getText().toString(), v);
                 changeQuestion();
             }
         });
@@ -71,7 +76,7 @@ public class GameActivity extends AppCompatActivity {
         option3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(option3.getText().toString(),v);
+                checkAnswer(option3.getText().toString(), v);
                 changeQuestion();
             }
         });
@@ -79,7 +84,7 @@ public class GameActivity extends AppCompatActivity {
         option4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAnswer(option4.getText().toString(),v);
+                checkAnswer(option4.getText().toString(), v);
                 changeQuestion();
             }
         });
@@ -88,28 +93,27 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(GameActivity.this,MenuActivity.class));
+        startActivity(new Intent(GameActivity.this, MenuActivity.class));
         finish();
     }
 
     @SuppressLint("SetTextI18n")
-    private void changeQuestion(){
+    private void changeQuestion() {
 
-        if(currentQuestionPosition == questionList.size() - 1){
+        if (currentQuestionPosition == questionList.size() - 1) {
             countDownTimer.cancel();
             Intent intent = new Intent(GameActivity.this, WonActivity.class);
             intent.putExtra("correct", numOfCorrectAnswer);
-            intent.putExtra("numOfQuestion",questionList.size());
+            intent.putExtra("numOfQuestion", questionList.size());
             startActivity(intent);
             finish();
-        }
-        else{
+        } else {
 
-            playAnimation(question,0,0);
-            playAnimation(option1,0,1);
-            playAnimation(option2,0,2);
-            playAnimation(option3,0,3);
-            playAnimation(option4,0,4);
+            playAnimation(question, 0, 0);
+            playAnimation(option1, 0, 1);
+            playAnimation(option2, 0, 2);
+            playAnimation(option3, 0, 3);
+            playAnimation(option4, 0, 4);
 
             currentQuestionPosition++;
             questions.setText(currentQuestionPosition + "/" + questionList.size());
@@ -118,34 +122,28 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAnswer(String playerAnswer,View view){
-        if(playerAnswer.equals(currentAnswer)){
-            ((AppCompatButton)view).setBackgroundResource(R.drawable.correct_answer_background);
-            ((AppCompatButton)view).setTextColor(Color.WHITE);
+    private void checkAnswer(String playerAnswer, View view) {
+        if (playerAnswer.equals(currentAnswer)) {
+            correctAnswerSound.start();
+            ((AppCompatButton) view).setBackgroundResource(R.drawable.correct_answer_background);
+            ((AppCompatButton) view).setTextColor(Color.WHITE);
             numOfCorrectAnswer++;
 
-        }
-        else{
-
-            ((AppCompatButton)view).setBackgroundResource(R.drawable.wrong_answer_background);
-            ((AppCompatButton)view).setTextColor(Color.WHITE);
+        } else {
+            ((AppCompatButton) view).setBackgroundResource(R.drawable.wrong_answer_background);
+            ((AppCompatButton) view).setTextColor(Color.WHITE);
 
 
-            if(currentAnswer.equals(option1.getText().toString())){
+            if (currentAnswer.equals(option1.getText().toString())) {
                 option1.setBackgroundResource(R.drawable.correct_answer_background);
                 option1.setTextColor(Color.WHITE);
-            }
-            else if(currentAnswer.equals(option2.getText().toString())){
+            } else if (currentAnswer.equals(option2.getText().toString())) {
                 option2.setBackgroundResource(R.drawable.correct_answer_background);
                 option2.setTextColor(Color.WHITE);
-            }
-
-            else if(currentAnswer.equals(option3.getText().toString())){
+            } else if (currentAnswer.equals(option3.getText().toString())) {
                 option3.setBackgroundResource(R.drawable.correct_answer_background);
                 option3.setTextColor(Color.WHITE);
-            }
-
-            else if(currentAnswer.equals(option4.getText().toString())){
+            } else if (currentAnswer.equals(option4.getText().toString())) {
                 option4.setBackgroundResource(R.drawable.correct_answer_background);
                 option4.setTextColor(Color.WHITE);
             }
@@ -153,7 +151,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void findAllViews(){
+    private void findAllViews() {
         backBtn = findViewById(R.id.backBtn);
         questions = findViewById(R.id.questions);
         question = findViewById(R.id.question);
@@ -165,7 +163,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
-    private void populateQuestions(){
+    private void populateQuestions() {
         Question q = questionList.get(currentQuestionPosition++);
         question.setText(q.getQuestion());
         option1.setText(q.getOption1());
@@ -177,14 +175,14 @@ public class GameActivity extends AppCompatActivity {
         countDownTimer.start();
     }
 
-    private void initTimer(){
+    private void initTimer() {
         long duration = TimeUnit.MINUTES.toMillis(1);
-        countDownTimer = new CountDownTimer(duration,1000) {
+        countDownTimer = new CountDownTimer(duration, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerValue -= 1;
                 progressBar.setProgress(timerValue);
-                if(timerValue == 0) {
+                if (timerValue == 0) {
                     cancel();
                     onFinish();
                 }
@@ -199,7 +197,7 @@ public class GameActivity extends AppCompatActivity {
         };
     }
 
-    private void playAnimation(View view,final int value,int viewNum){
+    private void playAnimation(View view, final int value, int viewNum) {
         view.animate().alpha(value).scaleX(value).scaleY(value).setDuration(500)
                 .setStartDelay(100).setInterpolator(new DecelerateInterpolator())
                 .setListener(new Animator.AnimatorListener() {
@@ -209,29 +207,29 @@ public class GameActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animator animation) {
-                        if(value == 0){
-                            switch (viewNum){
+                        if (value == 0) {
+                            switch (viewNum) {
                                 case 0:
-                                    ((TextView)view).setText(questionList.get(currentQuestionPosition).getQuestion());
+                                    ((TextView) view).setText(questionList.get(currentQuestionPosition).getQuestion());
                                     break;
                                 case 1:
-                                    ((TextView)view).setText(questionList.get(currentQuestionPosition).getOption1());
+                                    ((TextView) view).setText(questionList.get(currentQuestionPosition).getOption1());
                                     break;
                                 case 2:
-                                    ((TextView)view).setText(questionList.get(currentQuestionPosition).getOption2());
+                                    ((TextView) view).setText(questionList.get(currentQuestionPosition).getOption2());
                                     break;
                                 case 3:
-                                    ((TextView)view).setText(questionList.get(currentQuestionPosition).getOption3());
+                                    ((TextView) view).setText(questionList.get(currentQuestionPosition).getOption3());
                                     break;
                                 case 4:
-                                    ((TextView)view).setText(questionList.get(currentQuestionPosition).getOption4());
+                                    ((TextView) view).setText(questionList.get(currentQuestionPosition).getOption4());
                                     break;
                             }
-                            if(viewNum != 0){
-                                ((TextView)view).setBackgroundResource(R.drawable.round_back_white_stroke2);
-                                ((TextView)view).setTextColor(Color.parseColor("#1F6BB8"));
+                            if (viewNum != 0) {
+                                ((TextView) view).setBackgroundResource(R.drawable.round_back_white_stroke2);
+                                ((TextView) view).setTextColor(Color.parseColor("#1F6BB8"));
                             }
-                            playAnimation(view,1,viewNum);
+                            playAnimation(view, 1, viewNum);
                         }
                     }
 
@@ -245,6 +243,13 @@ public class GameActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    private void getTenRandomQuestions(){
+        List<Question> allQuestionsFromDB = DBService.getSingleInstance().getQuestionList();
+        Collections.shuffle(allQuestionsFromDB);
+        List<Question> questionsForRound = allQuestionsFromDB.subList(0,10);
+        questionList = questionsForRound;
     }
 
 }

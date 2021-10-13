@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_register);
 
@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -56,15 +56,15 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_password = password.getText().toString();
 
                 // field not empty
-                if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
+                if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
                     Toast.makeText(RegisterActivity.this, "Empty credentials!", Toast.LENGTH_SHORT).show();
 
-                // password at least 6 characters
-                }else if(txt_password.length() < 6){
+                    // password at least 6 characters
+                } else if (txt_password.length() < 6) {
                     Toast.makeText(RegisterActivity.this, "Password too short!", Toast.LENGTH_SHORT).show();
 
-                // register
-                }else{
+                    // register
+                } else {
                     registerUser(txt_email, txt_password);
                 }
             }
@@ -73,19 +73,18 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     /**
-     *
      * @param email
      * @param password
      */
     private void registerUser(String email, String password) {
-        auth.createUserWithEmailAndPassword(email,password).
+        auth.createUserWithEmailAndPassword(email, password).
                 addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull @org.jetbrains.annotations.NotNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, "Register user successful!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(RegisterActivity.this, MenuActivity.class));
-                        }else{
+                        } else {
                             Toast.makeText(RegisterActivity.this, "Register user failed!", Toast.LENGTH_SHORT).show();
                         }
                     }

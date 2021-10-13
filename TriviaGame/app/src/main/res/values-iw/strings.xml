@@ -13,6 +13,12 @@
     <string name="quiz">טריוויה</string>
     <string name="email">אימייל</string>
     <string name="remember_me">זכור אותי</string>
-
-
+    <string name="orientation_title">אורינטציה</string>
+    <string name="night_mode_title">מצב לילה</string>
+    <string name="night_mode_deactivated">מצב לילה כבוי</string>
+    <string name="night_mode_activated">מצב לילה מופעל</string>
+    <string name="enable_night_mode_category">לאפשר מצב לילה</string>
+    <string name="screen_orientation_category">אורינטצית מסך</string>
+    <string name="language_category">שפה</string>
+    <string name="all_language">כל השפות</string>
 </resources>
