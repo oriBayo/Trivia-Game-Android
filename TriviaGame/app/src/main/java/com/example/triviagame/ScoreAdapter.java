@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.triviagame.Models.Score;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

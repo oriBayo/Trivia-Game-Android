@@ -14,31 +14,31 @@
         android:theme="@style/Theme.TriviaGame">
 
         <activity
-            android:name=".WonActivity"
+            android:name=".Views.WonActivity"
             android:exported="true" />
         <activity
-            android:name=".TableScoreActivity"
+            android:name=".Views.TableScoreActivity"
             android:exported="true" />
         <activity
-            android:name=".TimesUpActivity"
+            android:name=".Views.TimesUpActivity"
             android:exported="true" />
         <activity
-            android:name=".GameActivity"
+            android:name=".Views.GameActivity"
             android:exported="true"
-            android:parentActivityName=".MenuActivity" />
+            android:parentActivityName=".Views.MenuActivity" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".Views.MenuActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Views.LoginActivity"
             android:exported="true"
-            android:parentActivityName=".StartActivity" />
+            android:parentActivityName=".Views.StartActivity" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Views.RegisterActivity"
             android:exported="true"
-            android:parentActivityName=".StartActivity" />
+            android:parentActivityName=".Views.StartActivity" />
         <activity
-            android:name=".StartActivity"
+            android:name=".Views.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

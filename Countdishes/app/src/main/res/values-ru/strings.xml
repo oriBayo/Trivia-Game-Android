@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Считать блюда</string>
+    <string name="steak_and_salad">Стейк и салат</string>
+    <string name="kebabs">Шашлыки</string>
+    <string name="fried_chicken">Жареная курочка</string>
+    <string name="salmon">Лосось</string>
+    <string name="spaghetti_squash">Спагетти сквош</string>
+    <string name="lamb">ягненок</string>
+    <string name="homemade_schnitzel">Домашний шницель</string>
+    <string name="next">Следующий</string>
+    <string name="delete">Удалить</string>
+    <string name="add_order">Добавить заказ</string>
+    <string name="please_chose_language">Пожалуйста, выберите язык:</string>
+    <string name="rations">Пайки</string>
+</resources>

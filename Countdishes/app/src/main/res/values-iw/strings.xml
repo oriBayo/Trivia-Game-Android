@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">סופר מנות</string>
+    <string name="steak_and_salad">סטייק וסלט</string>
+    <string name="kebabs">קבב</string>
+    <string name="fried_chicken">עוף מטוגן</string>
+    <string name="salmon">דג סלומון</string>
+    <string name="spaghetti_squash">ספגטי</string>
+    <string name="lamb">צלעות</string>
+    <string name="homemade_schnitzel">שניצל</string>
+    <string name="next">הבא</string>
+    <string name="delete">מחק</string>
+    <string name="add_order">הוסף הזמנה</string>
+    <string name="please_chose_language">אנא בחר שפה:</string>
+    <string name="rations">מנות</string>
+</resources>

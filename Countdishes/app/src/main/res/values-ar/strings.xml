@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">عد الأطباق</string>
+    <string name="steak_and_salad">ستيك وسلطة</string>
+    <string name="kebabs">كباب</string>
+    <string name="fried_chicken">دجاج مقلي</string>
+    <string name="salmon">سمك السالمون</string>
+    <string name="spaghetti_squash">الاسكواش السباغيتي</string>
+    <string name="lamb">عدس</string>
+    <string name="homemade_schnitzel">شنيتزل محلية الصنع</string>
+    <string name="next">التالي</string>
+    <string name="delete">حذف</string>
+    <string name="add_order">أضف طلب</string>
+    <string name="please_chose_language">الرجاء اختيار اللغة:</string>
+    <string name="rations">حصص</string>
+</resources>

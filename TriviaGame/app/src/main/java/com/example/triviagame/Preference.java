@@ -1,22 +1,18 @@
 package com.example.triviagame;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.media.VolumeShaper;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.telecom.Conference;
 
 import androidx.annotation.Nullable;
 
-import java.util.Locale;
+import com.example.triviagame.Views.MenuActivity;
 
 public class Preference extends PreferenceActivity {
     @Override

@@ -1,9 +1,9 @@
 package com.example.triviagame;
 
-import android.media.MediaPlayer;
-
 import androidx.annotation.NonNull;
 
+import com.example.triviagame.Models.Question;
+import com.example.triviagame.Models.Score;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,7 +13,6 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;

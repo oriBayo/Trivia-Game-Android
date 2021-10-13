@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Count dishes</string>
+    <string name="steak_and_salad">Steak and Salad</string>
+    <string name="kebabs">Kebabs</string>
+    <string name="fried_chicken">Fried Chicken</string>
+    <string name="salmon">Salmon</string>
+    <string name="spaghetti_squash">Spaghetti Squash</string>
+    <string name="lamb">Lamb</string>
+    <string name="homemade_schnitzel">Homemade schnitzel</string>
+    <string name="next">Next</string>
+    <string name="delete">Delete</string>
+    <string name="add_order">Add Order</string>
+    <string name="please_chose_language">Please chose language:</string>
+    <string name="rations">Rations</string>
+</resources>
