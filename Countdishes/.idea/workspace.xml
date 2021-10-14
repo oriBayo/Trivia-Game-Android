@@ -31,21 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97e9a2a6-da5e-4704-890c-23a31c62626d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_done.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_ready.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/buttons.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/OrderActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/OrderActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/OrderActivity2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/OrderActivity2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/button_language.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/button_delete.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_order2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/order.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/order.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/MenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/MenuActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/StartActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TriviaGame/app/src/main/java/com/example/triviagame/Views/StartActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +68,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-10-13T16:00:04.293926Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         englishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setLocale("en");
                 startActivity(new Intent(MainActivity.this,OrderActivity.class));
                 finish();
             }
