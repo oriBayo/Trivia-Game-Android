@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="@string/add_order"
-        android:background="@drawable/button_language"
+        android:background="@drawable/buttons"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true">

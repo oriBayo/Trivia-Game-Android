@@ -33,26 +33,29 @@ public class OrderActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int numOfCheckBox =  linearLayout.getChildCount();
-                for(int i=0;i<numOfCheckBox;i++){
+                int numOfCheckBox = linearLayout.getChildCount();
+                for (int i = 0; i < numOfCheckBox; i++) {
                     View v = linearLayout.getChildAt(i);
-                    CheckBox checkBox = (CheckBox)v;
-                    if(((CheckBox) v).isChecked()){
+                    CheckBox checkBox = (CheckBox) v;
+                    if (((CheckBox) v).isChecked()) {
                         foodPortions.add(checkBox.getText().toString());
                     }
+
+
                 }
 
-                Intent intent = new Intent(OrderActivity.this,OrderActivity2.class);
-                intent.putExtra(FOODPORTIONS,(ArrayList<String>)foodPortions);
+                Intent intent = new Intent(OrderActivity.this, OrderActivity2.class);
+                intent.putExtra(FOODPORTIONS, (ArrayList<String>) foodPortions);
                 startActivity(intent);
             }
         });
 
 
     }
+
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(OrderActivity.this,MainActivity.class));
+        startActivity(new Intent(OrderActivity.this, MainActivity.class));
         finish();
     }
 

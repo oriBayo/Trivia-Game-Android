@@ -29,39 +29,46 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/layout_order">
 
+
         <CheckBox
             android:id="@+id/checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="@string/steak_and_salad" />
 
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="@string/kebabs" />
 
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="@string/fried_chicken" />
 
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:text="@string/salmon" />
 
         <CheckBox
             android:id="@+id/checkBox5"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:text="@string/spaghetti_squash" />
 
         <CheckBox
             android:id="@+id/checkBox6"
             android:layout_width="match_parent"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:text="@string/lamb" />
 
@@ -69,6 +76,7 @@
             android:id="@+id/checkBox7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:text="@string/homemade_schnitzel" />
 
 
@@ -83,7 +91,7 @@
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/button_language"
+        android:background="@drawable/buttons"
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:layout_alignParentBottom="true"

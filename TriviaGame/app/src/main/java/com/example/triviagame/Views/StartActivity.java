@@ -16,7 +16,7 @@ import com.example.triviagame.R;
 public class StartActivity extends AppCompatActivity {
 
     private Animation topAnim, bottomAnim;
-    private MediaPlayer musicGame;
+    public static MediaPlayer musicGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

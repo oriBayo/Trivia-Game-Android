@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartActivity.musicGame.stop();
                 clickSound.start();
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(MenuActivity.this, "Logged Out!", Toast.LENGTH_SHORT).show();
