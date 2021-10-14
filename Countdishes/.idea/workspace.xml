@@ -30,9 +30,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97e9a2a6-da5e-4704-890c-23a31c62626d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/countdishes/MainActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="97e9a2a6-da5e-4704-890c-23a31c62626d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +66,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-10-13T16:00:04.293926Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Final Project Android/TriviaGame" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
@@ -185,10 +183,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="614" y="202" key="AndroidCreateXmlResourceDialog/0.0.1536.824@0.0.1536.824" timestamp="1634155798364" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1634166049374">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1634221298704">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1634166049374" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1634221298704" />
     <state width="1493" height="275" key="GridCell.Tab.0.bottom" timestamp="1634172869092">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
