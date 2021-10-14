@@ -9,10 +9,14 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 
 import androidx.annotation.Nullable;
 
 import com.example.triviagame.Views.MenuActivity;
+import com.example.triviagame.Views.StartActivity;
+
+import java.util.Locale;
 
 public class Preference extends PreferenceActivity {
     @Override
@@ -89,6 +93,34 @@ public class Preference extends PreferenceActivity {
                 return true;
             }
         });
+
+
+        // MUSIC MODE
+        boolean switchMusicMode = sharedPreferences.getBoolean("MUSIC", false);
+        if (switchMusicMode) {
+            if(!StartActivity.musicGame.isPlaying())
+                StartActivity.musicGame.start();
+        } else {
+            StartActivity.musicGame.pause();
+        }
+
+        SwitchPreference spMusicInstance = (SwitchPreference) findPreference("MUSIC");
+        spMusicInstance.setOnPreferenceChangeListener(new android.preference.Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(android.preference.Preference preference, Object o) {
+                boolean yes = (Boolean) o;
+                if (yes) {
+                    if(!StartActivity.musicGame.isPlaying())
+                        StartActivity.musicGame.start();
+
+                } else {
+                    StartActivity.musicGame.pause();
+                }
+                return true;
+            }
+        });
+
+
     }
 
 

@@ -30,6 +30,8 @@ public class MenuActivity extends AppCompatActivity {
     private Button logout;
     private ImageView lang_btn;
     private MediaPlayer clickSound;
+    private String language;
+    public static final String LANGUAGE = "LANGUAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,9 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickSound.start();
-                startActivity(new Intent(MenuActivity.this, Preference.class));
+                Intent intent = new Intent(MenuActivity.this, Preference.class);
+                intent.putExtra(LANGUAGE,language);
+                startActivity(intent);
                 finish();
             }
         });

@@ -24,15 +24,14 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/language_category">
-        <ListPreference
-            android:defaultValue="false"
-            android:key="LANGUAGE"
-            android:entries="@array/item_lang"
-            android:entryValues="@array/item_value_lang"
-            android:title="@string/all_language">
-
-        </ListPreference>
+    <PreferenceCategory android:title="Music">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="MUSIC"
+            android:title="turn on/off music"
+            android:summaryOff="music off"
+            android:summaryOn="music on">
+        </SwitchPreference>
 
     </PreferenceCategory>
 </PreferenceScreen>
